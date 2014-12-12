@@ -4,9 +4,9 @@ Author: neutronest toosaka
 
 basic implement for layer
 */
-package vexlayer
+package vex_layer
 
-type vexlayer interface {
+type vex_layer interface {
 	forward()
 
 	backward()
