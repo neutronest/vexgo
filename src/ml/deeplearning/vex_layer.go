@@ -6,10 +6,33 @@ basic implement for layer
 */
 package vex_layer
 
-type vex_layer interface {
-	forward()
+import (
+	"../base"
+)
 
-	backward()
+type VexLayer struct {
 
-	getParamsAndGrads()
+	// the type of layer: SVM, Sigmoid, Relu ...
+	layerType
+
+	//
+	numInputs int
+
+	outSx int
+
+	outSy int
+
+	intSx int
+
+	intSy int
+
+	LayerPrototype
+}
+
+type LayerPrototype interface {
+	forward(data DataFrame, isTraining bool) (dataResult DataFrame)
+
+	backward(y DataType)
+
+	GetParamsAndGrad() error
 }
